@@ -10,6 +10,7 @@ const detailsSchema = new Schema({
     pixelRatio: { type: Number, required: true },
     isTouch: { type: Boolean, required: true },
     ip: { type: String, required: true },
+    created: { type: Date, default: Date.now }
 });
 
 const DetailsModel = mongoose.model('Details', detailsSchema);
