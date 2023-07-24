@@ -52,6 +52,10 @@ app.get('/api/device-data/all', async (req, res) => {
     let data = await Detail.find({});
     res.json(data);
 })
+app.get('/api/device-data/all/delete', async (req, res) => {
+    let data = await Detail.deleteMany({});
+    res.json("All Delete Successfully")
+})
 
 // Start the server
 const port = 5000;
