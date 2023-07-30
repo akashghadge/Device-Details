@@ -16,7 +16,7 @@ app.engine('hbs', hbs.engine({
 
 // models
 const Detail = require("./model/Detail")
-
+const Flag = require("./model/Flag");
 
 // Route to display device details using Handlebars template
 app.get('/', (req, res) => {
@@ -26,6 +26,17 @@ app.get('/', (req, res) => {
         platform: process.platform
     };
     res.render('device-details', { deviceDetails });
+});
+
+app.get("/api/count", (req, res) => {
+    const newF = new Flag({ cn: 1 });
+    newF.save()
+        .then((date) => {
+            res.send({});
+        })
+        .catch((err) => {
+            res.status(500).json({});
+        })
 });
 app.post("/api/device-data", (req, res) => {
     const details = {
